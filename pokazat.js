@@ -1,6 +1,27 @@
+function transformNumericDirectionsToText(numericDirections) {
+  return numericDirections.map((direction) => {
+    if (direction === 2) {
+      return ('NORTH');
+    }
+
+    if (direction === -2) {
+      return ('SOUTH');
+    }
+
+    if (direction === 1) {
+      return ('WEST');
+    }
+
+    if (direction === -1) {
+      return ('EAST');
+    }
+
+    return '';
+  });
+}
+
 function dirReduc(arr) {
   const gg = [];
-  const final = [];
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] === 'NORTH') {
       gg.push(2);
@@ -34,18 +55,10 @@ function dirReduc(arr) {
   // КАК ЗАМЕНИТЬ ЭТО? -----------------------------------------------------------------------------
 
   console.log(gg);
-  for (let i = 0; i < gg.length; i++) {
-    if (gg[i] === 2) {
-      final.push('NORTH');
-    } else if (gg[i] === -2) {
-      final.push('SOUTH');
-    } else if (gg[i] === 1) {
-      final.push('WEST');
-    } else if (gg[i] === -1) {
-      final.push('EAST');
-    }
-  }
+
+  const final = transformNumericDirectionsToText(gg);
   console.log(final);
+
   return final;
 }
 
