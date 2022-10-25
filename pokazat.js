@@ -40,16 +40,10 @@ function dirReduc(arr) {
   for (let i = 0; i < gg.length; i++) {
     if (gg[i] + gg[i + 1] === 0) {
       gg.splice(i, 2);
-    }
-  }
-  for (let i = 0; i < gg.length; i++) {
-    if (gg[i] + gg[i + 1] === 0) {
-      gg.splice(i, 2);
-    }
-  }
-  for (let i = 0; i < gg.length; i++) {
-    if (gg[i] + gg[i + 1] === 0) {
-      gg.splice(i, 2);
+
+      const textDirections = transformNumericDirectionsToText(gg);
+
+      return dirReduc(textDirections);
     }
   }
   // КАК ЗАМЕНИТЬ ЭТО? -----------------------------------------------------------------------------
